@@ -19,7 +19,6 @@ public class PageService : IPageService
     public PageService()
     {
         Configure<ScheduleViewModel, SchedulePage>();
-        Configure<ScheduleDetailViewModel, ScheduleDetailPage>();
         Configure<FinancesViewModel, FinancesPage>();
         Configure<AnnouncementsViewModel, AnnouncementsPage>();
         Configure<ProfileViewModel, ProfilePage>();

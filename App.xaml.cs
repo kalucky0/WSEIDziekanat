@@ -49,8 +49,6 @@ public partial class App : Application
             services.AddTransient<AnnouncementsPage>();
             services.AddTransient<FinancesViewModel>();
             services.AddTransient<FinancesPage>();
-            services.AddTransient<ScheduleDetailViewModel>();
-            services.AddTransient<ScheduleDetailPage>();
             services.AddTransient<ScheduleViewModel>();
             services.AddTransient<SchedulePage>();
             services.AddTransient<ShellPage>();

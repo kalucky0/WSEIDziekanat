@@ -1,6 +1,6 @@
 ﻿<ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:local="using:WSEIDziekanat">
 
     <Style x:Key="PageTitleStyle" TargetType="TextBlock">
         <Setter Property="VerticalAlignment" Value="Center" />
@@ -15,6 +15,20 @@
         <Setter Property="FontSize" Value="{StaticResource MediumFontSize}" />
         <Setter Property="TextTrimming" Value="CharacterEllipsis" />
         <Setter Property="TextWrapping" Value="Wrap" />
+    </Style>
+
+    <Style TargetType="local:ScheduleHourControl" >
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:ScheduleHourControl">
+                    <Border BorderBrush="#323232" BorderThickness="0,0,1,1">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Center" Name="cellMiddle" Height="1">
+                            <Line x:Name="line" Stroke="#323232" StrokeDashArray="1 2" StrokeThickness="1" X1="0" Y1="0" Y2="0" X2="1"/>
+                        </StackPanel>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
     </Style>
 
 </ResourceDictionary>
