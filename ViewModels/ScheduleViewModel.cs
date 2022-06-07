@@ -45,10 +45,6 @@ public class ScheduleViewModel : ObservableRecipient, INavigationAware
 
     private void OnItemClick(SampleOrder clickedItem)
     {
-        if (clickedItem != null)
-        {
-            _navigationService.SetListDataItemForNextConnectedAnimation(clickedItem);
-            _navigationService.NavigateTo(typeof(ScheduleDetailViewModel).FullName, clickedItem.OrderID);
-        }
+
     }
 }
