@@ -1,0 +1,10 @@
+﻿{
+    "profiles": {
+      "WSEIDziekanat (Package)": {
+        "commandName": "MsixPackage"
+      },
+      "WSEIDziekanat (Unpackaged)": {
+        "commandName": "Project"
+      }
+    }
+}
