@@ -35,7 +35,7 @@ public partial class App : Application
             // Core Services
             services.AddSingleton<IGridDataService<Payment>, FinancesDataService>();
             services.AddSingleton<IGridDataService<Announcement>, AnnouncementsDataService>();
-            services.AddSingleton<IProfileDataService, ProfileDataService>();
+            services.AddSingleton<IDataService<Student>, ProfileDataService>();
             services.AddSingleton<IFileService, FileService>();
 
             // Views and ViewModels

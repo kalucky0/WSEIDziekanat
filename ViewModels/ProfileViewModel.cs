@@ -8,7 +8,7 @@ namespace WSEIDziekanat.ViewModels;
 
 public class ProfileViewModel : ObservableRecipient, INavigationAware
 {
-    private readonly IProfileDataService _profileDataService;
+    private readonly IDataService<Student> _profileDataService;
 
     public Student Source
     {
@@ -16,7 +16,7 @@ public class ProfileViewModel : ObservableRecipient, INavigationAware
         private set;
     }
 
-    public ProfileViewModel(IProfileDataService dataService)
+    public ProfileViewModel(IDataService<Student> dataService)
     {
         _profileDataService = dataService;
     }

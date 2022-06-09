@@ -3,7 +3,7 @@ using WSEIDziekanat.Models;
 
 namespace WSEIDziekanat.Services;
 
-public class ProfileDataService : IProfileDataService
+public class ProfileDataService : IDataService<Student>
 {
     private Student _student;
 
