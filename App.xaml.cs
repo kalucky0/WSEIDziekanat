@@ -34,6 +34,7 @@ public partial class App : Application
 
             // Core Services
             services.AddSingleton<IGridDataService<Payment>, FinancesDataService>();
+            services.AddSingleton<IGridDataService<Announcement>, AnnouncementsDataService>();
             services.AddSingleton<IFileService, FileService>();
 
             // Views and ViewModels
@@ -63,7 +64,7 @@ public partial class App : Application
         return _host.Services.GetService(typeof(T)) as T;
     }
 
-    public static Window MainWindow { get; set; } = new Window() { Title = "AppDisplayName".GetLocalized() };
+    public static Window MainWindow { get; } = new() { Title = "AppDisplayName".GetLocalized() };
 
     public App()
     {

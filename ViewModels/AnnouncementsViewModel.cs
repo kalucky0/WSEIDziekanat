@@ -1,35 +1,31 @@
 ﻿using System.Collections.ObjectModel;
 
 using CommunityToolkit.Mvvm.ComponentModel;
-
+using WSEIDziekanat.Contracts.Services;
 using WSEIDziekanat.Contracts.ViewModels;
-using WSEIDziekanat.Core.Contracts.Services;
-using WSEIDziekanat.Core.Models;
+using WSEIDziekanat.Models;
 
 namespace WSEIDziekanat.ViewModels;
 
 public class AnnouncementsViewModel : ObservableRecipient, INavigationAware
 {
-    private readonly ISampleDataService _sampleDataService;
+    private readonly IGridDataService<Announcement> _announcementsDataService;
 
-    public ObservableCollection<SampleOrder> Source { get; } = new ObservableCollection<SampleOrder>();
+    public ObservableCollection<Announcement> Source { get; } = new();
 
-    public AnnouncementsViewModel(ISampleDataService sampleDataService)
+    public AnnouncementsViewModel(IGridDataService<Announcement> dataService)
     {
-        _sampleDataService = sampleDataService;
+        _announcementsDataService = dataService;
     }
 
     public async void OnNavigatedTo(object parameter)
     {
         Source.Clear();
 
-        // TODO: Replace with real data.
-        var data = await _sampleDataService.GetGridDataAsync();
+        var data = await _announcementsDataService.GetGridDataAsync();
 
         foreach (var item in data)
-        {
             Source.Add(item);
-        }
     }
 
     public void OnNavigatedFrom()

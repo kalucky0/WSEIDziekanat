@@ -5,9 +5,11 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:controls="using:CommunityToolkit.WinUI.UI.Controls"
+    xmlns:viewmodels="using:WSEIDziekanat.Models"
+    d:DataContext="{d:DesignInstance Type=viewmodels:Announcement}"
     mc:Ignorable="d">
 
-    <StackPanel x:Name="ContentArea" Margin="{StaticResource NavigationViewPageContentMargin}">
+    <StackPanel Margin="{StaticResource NavigationViewPageContentMargin}">
         <TextBlock
             Text="Announcements"
             Margin="0,0,0,24"
@@ -20,24 +22,9 @@
                 <SolidColorBrush x:Key="DataGridColumnHeaderBackgroundColor" Color="Transparent" />
             </controls:DataGrid.Resources>
             <controls:DataGrid.Columns>
-                <!-- TODO: Replace column definitions to match real data. Consider adding Header values to Resources.resw. -->
-                <controls:DataGridTextColumn Binding="{Binding OrderID}" Header="OrderID" />
-                <controls:DataGridTextColumn Binding="{Binding OrderDate}" Header="OrderDate" />
-                <controls:DataGridTextColumn Binding="{Binding Company}" Header="Company" />
-                <controls:DataGridTextColumn Binding="{Binding ShipTo}" Header="ShipTo" />
-                <controls:DataGridTextColumn Binding="{Binding OrderTotal}" Header="OrderTotal" />
-                <controls:DataGridTextColumn Binding="{Binding Status}" Header="Status" />
-                <controls:DataGridTemplateColumn Header="Symbol">
-                    <controls:DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <FontIcon
-                                HorizontalAlignment="Left"
-                                FontFamily="{ThemeResource SymbolThemeFontFamily}"
-                                Glyph="{Binding Symbol}"
-                                AutomationProperties.Name="{Binding SymbolName}" />
-                        </DataTemplate>
-                    </controls:DataGridTemplateColumn.CellTemplate>
-                </controls:DataGridTemplateColumn>
+                <controls:DataGridTextColumn Binding="{Binding Priority}" Header="Priorytet" Width="0.1*" />
+                <controls:DataGridTextColumn Binding="{Binding Title}" Header="Temat ogłoszenia" Width="0.8*" />
+                <controls:DataGridTextColumn Binding="{Binding Date}" Header="Data publikacji" Width="0.1*" />
             </controls:DataGrid.Columns>
         </controls:DataGrid>
     </StackPanel>
