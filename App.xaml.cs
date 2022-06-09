@@ -40,8 +40,6 @@ public partial class App : Application
             // Views and ViewModels
             services.AddTransient<SettingsViewModel>();
             services.AddTransient<SettingsPage>();
-            services.AddTransient<ProfileDetailViewModel>();
-            services.AddTransient<ProfileDetailPage>();
             services.AddTransient<ProfileViewModel>();
             services.AddTransient<ProfilePage>();
             services.AddTransient<AnnouncementsViewModel>();

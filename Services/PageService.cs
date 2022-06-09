@@ -22,7 +22,6 @@ public class PageService : IPageService
         Configure<FinancesViewModel, FinancesPage>();
         Configure<AnnouncementsViewModel, AnnouncementsPage>();
         Configure<ProfileViewModel, ProfilePage>();
-        Configure<ProfileDetailViewModel, ProfileDetailPage>();
         Configure<SettingsViewModel, SettingsPage>();
     }
 
