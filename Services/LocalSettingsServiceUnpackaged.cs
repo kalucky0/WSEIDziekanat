@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.Options;
 
 using WSEIDziekanat.Contracts.Services;
-using WSEIDziekanat.Core.Contracts.Services;
-using WSEIDziekanat.Core.Helpers;
+using WSEIDziekanat.Helpers;
 using WSEIDziekanat.Models;
 
 namespace WSEIDziekanat.Services;
@@ -43,9 +42,7 @@ public class LocalSettingsServiceUnpackaged : ILocalSettingsService
         object obj;
 
         if (_settings.TryGetValue(key, out obj))
-        {
             return await Json.ToObjectAsync<T>((string)obj);
-        }
 
         return default;
     }
