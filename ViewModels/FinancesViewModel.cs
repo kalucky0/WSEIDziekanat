@@ -1,35 +1,30 @@
-﻿using System.Collections.ObjectModel;
-
-using CommunityToolkit.Mvvm.ComponentModel;
-
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using System.Collections.ObjectModel;
+using WSEIDziekanat.Contracts.Services;
 using WSEIDziekanat.Contracts.ViewModels;
-using WSEIDziekanat.Core.Contracts.Services;
-using WSEIDziekanat.Core.Models;
+using WSEIDziekanat.Models;
 
 namespace WSEIDziekanat.ViewModels;
 
 public class FinancesViewModel : ObservableRecipient, INavigationAware
 {
-    private readonly ISampleDataService _sampleDataService;
+    private readonly IGridDataService<Payment> _financesDataService;
 
-    public ObservableCollection<SampleOrder> Source { get; } = new ObservableCollection<SampleOrder>();
+    public ObservableCollection<Payment> Source { get; } = new();
 
-    public FinancesViewModel(ISampleDataService sampleDataService)
+    public FinancesViewModel(IGridDataService<Payment> dataService)
     {
-        _sampleDataService = sampleDataService;
+        _financesDataService = dataService;
     }
 
     public async void OnNavigatedTo(object parameter)
     {
         Source.Clear();
 
-        // TODO: Replace with real data.
-        var data = await _sampleDataService.GetGridDataAsync();
+        var data = await _financesDataService.GetGridDataAsync();
 
         foreach (var item in data)
-        {
             Source.Add(item);
-        }
     }
 
     public void OnNavigatedFrom()
