@@ -1,7 +1,7 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using System.Collections.Generic;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.UI.Xaml;
-
 using WSEIDziekanat.Activation;
 using WSEIDziekanat.Contracts.Services;
 using WSEIDziekanat.Helpers;
@@ -12,7 +12,7 @@ using WSEIDziekanat.Views;
 
 namespace WSEIDziekanat;
 
-public partial class App : Application
+public partial class App
 {
     private static readonly IHost _host = Host
         .CreateDefaultBuilder()
@@ -29,26 +29,27 @@ public partial class App : Application
             services.AddTransient<INavigationViewService, NavigationViewService>();
 
             services.AddSingleton<IActivationService, ActivationService>();
-            services.AddSingleton<IPageService, PageService>();
             services.AddSingleton<INavigationService, NavigationService>();
+            services.AddSingleton<IPageService, PageService>();
 
             // Core Services
-            services.AddSingleton<IGridDataService<Payment>, FinancesDataService>();
-            services.AddSingleton<IGridDataService<Announcement>, AnnouncementsDataService>();
+            services.AddSingleton<IDataService<IEnumerable<Schedule>>, ScheduleDataService>();
             services.AddSingleton<IDataService<Student>, ProfileDataService>();
             services.AddSingleton<IFileService, FileService>();
+            services.AddSingleton<IGridDataService<Announcement>, AnnouncementsDataService>();
+            services.AddSingleton<IGridDataService<Payment>, FinancesDataService>();
 
             // Views and ViewModels
-            services.AddTransient<SettingsViewModel>();
-            services.AddTransient<SettingsPage>();
-            services.AddTransient<ProfileViewModel>();
-            services.AddTransient<ProfilePage>();
-            services.AddTransient<AnnouncementsViewModel>();
             services.AddTransient<AnnouncementsPage>();
-            services.AddTransient<FinancesViewModel>();
+            services.AddTransient<AnnouncementsViewModel>();
             services.AddTransient<FinancesPage>();
-            services.AddTransient<ScheduleViewModel>();
+            services.AddTransient<FinancesViewModel>();
+            services.AddTransient<ProfilePage>();
+            services.AddTransient<ProfileViewModel>();
             services.AddTransient<SchedulePage>();
+            services.AddTransient<ScheduleViewModel>();
+            services.AddTransient<SettingsPage>();
+            services.AddTransient<SettingsViewModel>();
             services.AddTransient<ShellPage>();
             services.AddTransient<ShellViewModel>();
 
@@ -58,10 +59,7 @@ public partial class App : Application
         .Build();
 
     public static T GetService<T>()
-        where T : class
-    {
-        return _host.Services.GetService(typeof(T)) as T;
-    }
+        where T : class => _host.Services.GetService(typeof(T)) as T;
 
     public static Window MainWindow { get; } = new() { Title = "AppDisplayName".GetLocalized() };
 
@@ -71,7 +69,7 @@ public partial class App : Application
         UnhandledException += App_UnhandledException;
     }
 
-    private void App_UnhandledException(object sender, UnhandledExceptionEventArgs e)
+    private static void App_UnhandledException(object sender, UnhandledExceptionEventArgs e)
     {
         // TODO: Log and handle exceptions as appropriate.
         // For more details, see https://docs.microsoft.com/windows/winui/api/microsoft.ui.xaml.unhandledexceptioneventargs.

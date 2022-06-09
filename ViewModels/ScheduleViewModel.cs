@@ -1,50 +1,33 @@
-﻿using System.Collections.ObjectModel;
-using System.Windows.Input;
-
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Mvvm.Input;
-
 using WSEIDziekanat.Contracts.Services;
 using WSEIDziekanat.Contracts.ViewModels;
-using WSEIDziekanat.Core.Contracts.Services;
-using WSEIDziekanat.Core.Models;
+using WSEIDziekanat.Models;
 
 namespace WSEIDziekanat.ViewModels;
 
 public class ScheduleViewModel : ObservableRecipient, INavigationAware
 {
-    private readonly INavigationService _navigationService;
-    private readonly ISampleDataService _sampleDataService;
-    private ICommand _itemClickCommand;
+    private readonly IDataService<IEnumerable<Schedule>> _scheduleDataService;
 
-    public ICommand ItemClickCommand => _itemClickCommand ??= new RelayCommand<SampleOrder>(OnItemClick);
-
-    public ObservableCollection<SampleOrder> Source { get; } = new ObservableCollection<SampleOrder>();
-
-    public ScheduleViewModel(INavigationService navigationService, ISampleDataService sampleDataService)
+    public ObservableCollection<Schedule> Source
     {
-        _navigationService = navigationService;
-        _sampleDataService = sampleDataService;
+        get;
+        private set;
+    }
+
+    public ScheduleViewModel(IDataService<IEnumerable<Schedule>> dataService)
+    {
+        _scheduleDataService = dataService;
     }
 
     public async void OnNavigatedTo(object parameter)
     {
-        Source.Clear();
-
-        // TODO: Replace with real data.
-        var data = await _sampleDataService.GetContentGridDataAsync();
-        foreach (var item in data)
-        {
-            Source.Add(item);
-        }
+        Source = new ObservableCollection<Schedule>(_scheduleDataService.GetData());
     }
 
     public void OnNavigatedFrom()
     {
-    }
-
-    private void OnItemClick(SampleOrder clickedItem)
-    {
-
     }
 }
