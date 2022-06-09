@@ -1,6 +1,6 @@
 ﻿namespace WSEIDziekanat.Models;
 
-class Student
+public class Student
 {
     public int Uid { get; }
     public string Name { get; }
