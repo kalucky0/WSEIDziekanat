@@ -28,6 +28,8 @@ public partial class App
             services.AddSingleton<IThemeSelectorService, ThemeSelectorService>();
             services.AddTransient<INavigationViewService, NavigationViewService>();
 
+            services.AddSingleton<ISynchronizationService, SynchronizationService>();
+
             services.AddSingleton<IActivationService, ActivationService>();
             services.AddSingleton<INavigationService, NavigationService>();
             services.AddSingleton<IPageService, PageService>();
