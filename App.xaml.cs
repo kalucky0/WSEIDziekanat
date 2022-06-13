@@ -28,6 +28,7 @@ public partial class App
             services.AddSingleton<IThemeSelectorService, ThemeSelectorService>();
             services.AddTransient<INavigationViewService, NavigationViewService>();
 
+            services.AddSingleton<IAuthenticationService, AuthenticationService>();
             services.AddSingleton<ISynchronizationService, SynchronizationService>();
 
             services.AddSingleton<IActivationService, ActivationService>();
@@ -66,6 +67,8 @@ public partial class App
         where T : class => _host.Services.GetService(typeof(T)) as T;
 
     public static Window MainWindow { get; } = new() { Title = "AppDisplayName".GetLocalized() };
+
+    public static string SessionId = "";
 
     public App()
     {
