@@ -46,6 +46,8 @@ public partial class App
             services.AddTransient<AnnouncementsViewModel>();
             services.AddTransient<FinancesPage>();
             services.AddTransient<FinancesViewModel>();
+            services.AddTransient<LoginPage>();
+            services.AddTransient<LoginViewModel>();
             services.AddTransient<ProfilePage>();
             services.AddTransient<ProfileViewModel>();
             services.AddTransient<SchedulePage>();

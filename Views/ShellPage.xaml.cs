@@ -11,7 +11,6 @@ using WSEIDziekanat.ViewModels;
 
 namespace WSEIDziekanat.Views;
 
-// TODO: Update NavigationViewItem titles and icons in ShellPage.xaml.
 public sealed partial class ShellPage : Page
 {
     public ShellViewModel ViewModel
@@ -42,6 +41,10 @@ public sealed partial class ShellPage : Page
 
         KeyboardAccelerators.Add(BuildKeyboardAccelerator(VirtualKey.Left, VirtualKeyModifiers.Menu));
         KeyboardAccelerators.Add(BuildKeyboardAccelerator(VirtualKey.GoBack));
+
+        ViewModel.NavigationService.NavigateTo(typeof(LoginViewModel).FullName);
+
+        NavigationViewControl.IsEnabled = true;
     }
 
     private void MainWindow_Activated(object sender, WindowActivatedEventArgs args)
