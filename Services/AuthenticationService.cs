@@ -1,7 +1,7 @@
 ﻿using RestSharp;
-using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using WSEIDziekanat.Contracts.Services;
@@ -15,6 +15,12 @@ internal class AuthenticationService : DataDownloader, IAuthenticationService
 
     private const string UrlLogin = "https://dziekanat.wsei.edu.pl/Konto/LogowanieStudenta";
 
+    public Task SolveCaptcha()
+    {
+        // TODO: Handle captcha
+        return Task.CompletedTask;
+    }
+
     public async Task<string?> TryLogin(string login, string password, string[] formFields)
     {
         var credentials = captchaCode.Length == 0
@@ -25,7 +31,7 @@ internal class AuthenticationService : DataDownloader, IAuthenticationService
         {
             { "User-Agent", "Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:47.0) Gecko/20100101 Firefox/47.0" },
             { "Cookie", $"ASP.NET_SessionId={App.SessionId}" },
-            { "Content-Type", "application/x-www-form-urlencoded"},
+            { "Content-Type", "application/x-www-form-urlencoded" },
         };
 
         var client = new RestClient();
@@ -51,10 +57,12 @@ internal class AuthenticationService : DataDownloader, IAuthenticationService
 
         RestResponse response = await client.ExecuteGetAsync(request, cancellationTokenSource.Token);
 
-        if (!response.IsSuccessful) return null;
-
-        if (response.Headers != null)
-            App.SessionId = response.Headers.ToList().Find(x => x.Name?.ToLower() == "set-cookie")?.Value?.ToString();
+        if (!response.IsSuccessful || response.Headers is null) return null;
+        
+        var sessionIdRegex = new Regex(@"ASP.NET_SessionId=(.*?);");
+        App.SessionId = sessionIdRegex.Match(response.Headers.ToList()
+            .Find(x => x.Name?.ToLower() == "set-cookie")?
+            .Value?.ToString() ?? string.Empty).Groups[1].Value;
 
         return response.Content;
     }

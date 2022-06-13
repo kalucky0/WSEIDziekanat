@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Threading.Tasks;
 using WSEIDziekanat.Contracts.Services;
 using WSEIDziekanat.Models;
@@ -23,11 +24,13 @@ public class SynchronizationService : ISynchronizationService
         try
         {
             Student student = await StudentData.Get();
+            Debug.WriteLine($"{student.Name} {student.Surname}");
             // TODO: Save student to database
             return true;
         }
-        catch (Exception)
+        catch (Exception e)
         {
+            Debug.Fail(e.Message, e.StackTrace);
             return false;
         }
     }
@@ -40,8 +43,9 @@ public class SynchronizationService : ISynchronizationService
             // TODO: Save schedule to database
             return true;
         }
-        catch (Exception)
+        catch (Exception e)
         {
+            Debug.Fail(e.Message, e.StackTrace);
             return false;
         }
     }
@@ -54,8 +58,9 @@ public class SynchronizationService : ISynchronizationService
             // TODO: Save announcements to database
             return true;
         }
-        catch (Exception)
+        catch (Exception e)
         {
+            Debug.Fail(e.Message, e.StackTrace);
             return false;
         }
     }
@@ -68,8 +73,9 @@ public class SynchronizationService : ISynchronizationService
             // TODO: Save payments to database
             return true;
         }
-        catch (Exception)
+        catch (Exception e)
         {
+            Debug.Fail(e.Message, e.StackTrace);
             return false;
         }
     }
