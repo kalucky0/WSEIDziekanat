@@ -3,6 +3,8 @@ using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml.Media;
 
+using System.Linq;
+
 using Windows.System;
 
 using WSEIDziekanat.Contracts.Services;
@@ -42,7 +44,8 @@ public sealed partial class ShellPage : Page
         KeyboardAccelerators.Add(BuildKeyboardAccelerator(VirtualKey.Left, VirtualKeyModifiers.Menu));
         KeyboardAccelerators.Add(BuildKeyboardAccelerator(VirtualKey.GoBack));
 
-        ViewModel.NavigationService.NavigateTo(typeof(LoginViewModel).FullName);
+        if (App.Database.Credentials.Count() == 0)
+            ViewModel.NavigationService.NavigateTo(typeof(LoginViewModel).FullName);
 
         NavigationViewControl.IsEnabled = true;
     }

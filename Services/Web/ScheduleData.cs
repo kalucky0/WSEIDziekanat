@@ -20,7 +20,7 @@ public class ScheduleData : DataDownloader
         HtmlNode document = await GetData(Url);
         HtmlNode[] rows = document.QuerySelectorAll(".dxgvDataRow_Aqua,.dxgvGroupRow_Aqua").Reverse().ToArray();
         var date = "";
-        var i = 0;
+        var i = 1;
 
         foreach (HtmlNode row in rows)
         {

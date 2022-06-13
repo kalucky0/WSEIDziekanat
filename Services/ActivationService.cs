@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-
+using Microsoft.EntityFrameworkCore;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 
@@ -68,6 +68,7 @@ public class ActivationService : IActivationService
 
         App.Database = new DatabaseContext();
         await App.Database.Database.EnsureCreatedAsync();
+        await App.Database.Database.MigrateAsync();
 
         await Task.CompletedTask;
     }

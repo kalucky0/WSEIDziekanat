@@ -17,7 +17,7 @@ public class PaymentsData : DataDownloader
         .Select(row => row.QuerySelectorAll("td").ToList()
             .Select(td => td.InnerText.Trim()).ToArray())
         .Select((data, i) => new Payment(
-            i,
+            i + 1,
             data[1],
             data[2],
             data[3],

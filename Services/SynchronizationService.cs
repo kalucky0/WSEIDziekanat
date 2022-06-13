@@ -24,8 +24,12 @@ public class SynchronizationService : ISynchronizationService
         try
         {
             Student student = await StudentData.Get();
-            Debug.WriteLine($"{student.Name} {student.Surname}");
-            // TODO: Save student to database
+            App.Database.Students.RemoveRange(App.Database.Students);
+
+            await App.Database.Students.AddAsync(student);
+
+            await App.Database.SaveChangesAsync();
+
             return true;
         }
         catch (Exception e)
@@ -40,7 +44,13 @@ public class SynchronizationService : ISynchronizationService
         try
         {
             List<Schedule> schedule = await ScheduleData.Get();
-            // TODO: Save schedule to database
+
+            App.Database.Schedule.RemoveRange(App.Database.Schedule);
+
+            await App.Database.Schedule.AddRangeAsync(schedule);
+
+            await App.Database.SaveChangesAsync();
+
             return true;
         }
         catch (Exception e)
@@ -55,7 +65,12 @@ public class SynchronizationService : ISynchronizationService
         try
         {
             List<Announcement> announcements = await AnnouncementsData.Get();
-            // TODO: Save announcements to database
+            App.Database.Announcements.RemoveRange(App.Database.Announcements);
+
+            await App.Database.Announcements.AddRangeAsync(announcements);
+
+            await App.Database.SaveChangesAsync();
+
             return true;
         }
         catch (Exception e)
@@ -70,7 +85,12 @@ public class SynchronizationService : ISynchronizationService
         try
         {
             List<Payment> payments = await PaymentsData.Get();
-            // TODO: Save payments to database
+            App.Database.Payments.RemoveRange(App.Database.Payments);
+
+            await App.Database.Payments.AddRangeAsync(payments);
+
+            await App.Database.SaveChangesAsync();
+
             return true;
         }
         catch (Exception e)
@@ -83,6 +103,7 @@ public class SynchronizationService : ISynchronizationService
     private async Task<bool> TryGetGrades()
     {
         // TODO: Add grades
+
         return true;
     }
 }

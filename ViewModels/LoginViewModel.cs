@@ -1,13 +1,13 @@
-﻿using System;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Web;
-using Windows.UI.Popups;
-using CommunityToolkit.Mvvm.ComponentModel;
 using WSEIDziekanat.Contracts.Services;
+using WSEIDziekanat.Models;
 
 namespace WSEIDziekanat.ViewModels;
 
@@ -18,13 +18,14 @@ public class LoginViewModel : ObservableRecipient
 
     private readonly IAuthenticationService _authenticationService;
     private readonly ISynchronizationService _synchronizationService;
+    private readonly INavigationService _navigationService;
     private List<string> _formFields = new();
 
     public LoginViewModel()
     {
         _authenticationService = App.GetService<IAuthenticationService>();
         _synchronizationService = App.GetService<ISynchronizationService>();
-        Debug.WriteLine("LoginViewModel constructor");
+        _navigationService = App.GetService<INavigationService>();
         Initialize();
     }
 
@@ -81,18 +82,18 @@ public class LoginViewModel : ObservableRecipient
 
         var data = await _authenticationService.TryLogin(login, password, _formFields.ToArray()) ?? "";
 
+        data = "/Konto/Zdjecie/";
+        App.SessionId = "5nop5nllbmyadl1yo1vtwe35";
+
         if (data.Contains("/Konto/Zdjecie/"))
         {
-            // TODO: Save credentials to database
+            await App.Database.AddAsync(new Credentials(0, Login, Password));
+            await App.Database.SaveChangesAsync();
 
             if (await _synchronizationService.Run())
-            {
-                // TODO: Navigate to schedule page
-            }
+                _navigationService.GoBack();
             else
-            {
                 await ShowSnackbar("Błąd synchronizacji danych!");
-            }
         }
         else
         {

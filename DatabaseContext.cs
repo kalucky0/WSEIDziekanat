@@ -23,5 +23,5 @@ public sealed class DatabaseContext : DbContext
     }
 
     protected override void OnConfiguring(DbContextOptionsBuilder options)
-        => options.UseSqlite($"Data Source={DbPath}");
+        => options.UseSqlite($"Data Source={DbPath}").EnableSensitiveDataLogging(true);
 }

@@ -41,7 +41,7 @@ public class StudentData : DataDownloader
         HtmlNode[] educationData = document.QuerySelectorAll("td.dane").ToArray();
 
         return new Student(
-            0,
+            1,
             GetValue(personalData, 1),
             GetValue(personalData, 2),
             GetValue(personalData, 0),
