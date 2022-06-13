@@ -2,19 +2,19 @@
 
 public class Payment
 {
-    public int Uid { get; }
-    public string Name { get; }
-    public string Due { get; }
-    public string State { get; }
-    public string AmountNow { get; }
-    public string Amount { get; }
-    public string PaymentDate { get; }
-    public string AdditionalInfo { get; }
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public string Due { get; set; }
+    public string State { get; set; }
+    public string AmountNow { get; set; }
+    public string Amount { get; set; }
+    public string PaymentDate { get; set; }
+    public string AdditionalInfo { get; set; }
 
-    public Payment(int uid, string name, string due, string state, string amountNow, string amount, string paymentDate,
+    public Payment(int id, string name, string due, string state, string amountNow, string amount, string paymentDate,
         string additionalInfo)
     {
-        Uid = uid;
+        Id = id;
         Name = name;
         Due = due;
         State = state;

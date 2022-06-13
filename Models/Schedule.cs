@@ -2,20 +2,20 @@
 
 public class Schedule
 {
-    public int Uid { get; }
-    public string Day { get; }
-    public double TimeFrom { get; }
-    public double TimeTo { get; }
-    public string Subject { get; }
-    public string Instructor { get; }
-    public string Type { get; }
-    public string Group { get; }
-    public string Location { get; }
+    public int Id { get; set; }
+    public string Day { get; set; }
+    public double TimeFrom { get; set; }
+    public double TimeTo { get; set; }
+    public string Subject { get; set; }
+    public string Instructor { get; set; }
+    public string Type { get; set; }
+    public string Group { get; set; }
+    public string Location { get; set; }
 
-    public Schedule(int uid, string day, double timeFrom, double timeTo, string subject, string instructor,
+    public Schedule(int id, string day, double timeFrom, double timeTo, string subject, string instructor,
         string type, string group, string location)
     {
-        Uid = uid;
+        Id = id;
         Day = day;
         TimeFrom = timeFrom;
         TimeTo = timeTo;

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.UI.Xaml;
@@ -67,6 +68,8 @@ public partial class App
         where T : class => _host.Services.GetService(typeof(T)) as T;
 
     public static Window MainWindow { get; } = new() { Title = "AppDisplayName".GetLocalized() };
+
+    public static DatabaseContext Database { get; set; }
 
     public static string SessionId = "";
 

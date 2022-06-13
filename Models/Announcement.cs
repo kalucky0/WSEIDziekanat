@@ -2,15 +2,15 @@
 
 public class Announcement
 {
-    public int Uid { get; }
-    public string Title { get; }
-    public string Priority { get; }
-    public string Date { get; }
-    public bool IsRead { get; }
-    
-    public Announcement(int uid, string title, string priority, string date, bool isRead)
+    public int Id { get; set; }
+    public string Title { get; set; }
+    public string Priority { get; set; }
+    public string Date { get; set; }
+    public bool IsRead { get; set; }
+
+    public Announcement(int id, string title, string priority, string date, bool isRead)
     {
-        Uid = uid;
+        Id = id;
         Title = title;
         Priority = priority;
         Date = date;
