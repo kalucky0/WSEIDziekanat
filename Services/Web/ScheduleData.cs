@@ -18,15 +18,18 @@ public class ScheduleData : DataDownloader
         var schedule = new List<Schedule>();
 
         HtmlNode document = await GetData(Url);
-        HtmlNode[] rows = document.QuerySelectorAll(".dxgvDataRow_Aqua,.dxgvGroupRow_Aqua").Reverse().ToArray();
+        var rows = document.QuerySelectorAll("#gridViewPlanyStudentow_DXMainTable tr");
         var date = "";
         var i = 1;
 
         foreach (HtmlNode row in rows)
         {
-            if (row.InnerText.Contains("Data Zajęć"))
+            var innerText = row.InnerText.Trim();
+            if (innerText.Contains("Data Zajęć"))
+            {
                 date = FindDate(row.InnerText.Trim());
-            else
+            }
+            else if (innerText.StartsWith("&nbsp;"))
             {
                 HtmlNode[] cols = row.QuerySelectorAll("td").ToArray();
                 schedule.Add(new Schedule(
