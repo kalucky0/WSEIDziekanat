@@ -38,29 +38,29 @@
                     </Grid.RowDefinitions>
 
                     <Border BorderBrush="#494949" BorderThickness="0,0,0,1" />
-                    <Border BorderBrush="#494949" BorderThickness="0,0,0,1" Grid.Column="1">
+                    <Border BorderBrush="#494949" BorderThickness="0,0,0,1" Grid.Column="1" x:Name="MondayBorder">
                         <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center" Padding="10,0,0,0">
-                            <TextBlock FontSize="16" FontWeight="Light">Poniedziałek</TextBlock>
+                            <TextBlock FontSize="16" FontWeight="Light" x:Name="MondayText">Poniedziałek</TextBlock>
                         </StackPanel>
                     </Border>
                     <Border BorderBrush="#494949" BorderThickness="0,0,0,1" Grid.Column="2">
-                        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center" Padding="10,0,0,0">
-                            <TextBlock FontSize="16" FontWeight="Light">Wtorek</TextBlock>
+                        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center" Padding="10,0,0,0" x:Name="TuesdayBorder">
+                            <TextBlock FontSize="16" FontWeight="Light" x:Name="TuesdayText">Wtorek</TextBlock>
                         </StackPanel>
                     </Border>
-                    <Border BorderBrush="#494949" BorderThickness="0,0,0,1" Grid.Column="3">
+                    <Border BorderBrush="#494949" BorderThickness="0,0,0,1" Grid.Column="3" x:Name="WednesdayBorder">
                         <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center" Padding="10,0,0,0">
-                            <TextBlock FontSize="16" FontWeight="Light">Środa</TextBlock>
+                            <TextBlock FontSize="16" FontWeight="Light" x:Name="WednesdayText">Środa</TextBlock>
                         </StackPanel>
                     </Border>
-                    <Border BorderBrush="{ThemeResource SystemAccentColor}" BorderThickness="0,0,0,2" Grid.Column="4">
+                    <Border BorderBrush="#494949" BorderThickness="0,0,0,1" Grid.Column="4" x:Name="ThursdayBorder">
                         <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center" Padding="10,0,0,0">
-                            <TextBlock FontSize="16" FontWeight="SemiBold">Czwartek</TextBlock>
+                            <TextBlock FontSize="16" FontWeight="Light" x:Name="ThursdayText">Czwartek</TextBlock>
                         </StackPanel>
                     </Border>
                     <Border BorderBrush="#494949" BorderThickness="0,0,0,1" Grid.Column="5">
-                        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center" Padding="10,0,0,0">
-                            <TextBlock FontSize="16" FontWeight="Light">Piątek</TextBlock>
+                        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center" Padding="10,0,0,0" x:Name="FridayBorder">
+                            <TextBlock FontSize="16" FontWeight="Light" x:Name="FridayText">Piątek</TextBlock>
                         </StackPanel>
                     </Border>
 
@@ -239,6 +239,20 @@
                     <local:ScheduleHourControl Grid.Row="13" Grid.Column="5"/>
                     <local:ScheduleHourControl Grid.Row="14" Grid.Column="5"/>
                     <local:ScheduleHourControl Grid.Row="15" Grid.Column="5"/>
+                </Grid>
+                <Grid x:Name="ScheduleItems">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="36   "/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
                 </Grid>
             </Grid>
         </ScrollViewer>
