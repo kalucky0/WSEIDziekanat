@@ -47,6 +47,7 @@
                             Style="{ThemeResource BodyStrongTextBlockStyle}" />
                         <TextBlock 
                             Grid.Column="1"
+                            Margin="0,0,0,12"
                             Text="{TemplateBinding RightText}" />
                     </Grid>
                 </ControlTemplate>

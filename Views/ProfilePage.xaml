@@ -4,14 +4,14 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:viewmodels="using:WSEIDziekanat.Models"
+    xmlns:viewmodels="using:WSEIDziekanat.Models" xmlns:local="using:WSEIDziekanat.Controls"
     d:DataContext="{d:DesignInstance Type=viewmodels:Student}"
     mc:Ignorable="d">
 
     <ScrollViewer>
         <StackPanel x:Name="ContentArea" Margin="{StaticResource NavigationViewPageContentMargin}">
             <TextBlock
-                Text="Your data"
+                Text="Twoje dane"
                 Margin="0,0,0,24"
                 Style="{ThemeResource TitleTextBlockStyle}" />
 
@@ -26,196 +26,177 @@
                         Text="Osobowe"
                         Margin="0,0,0,24"
                         Style="{ThemeResource SubtitleTextBlockStyle}" />
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-                        <StackPanel Grid.Column="0">
-                            <TextBlock
-                                Text="Imię"
-                                Margin="0,0,0,12"
-                                Style="{ThemeResource BodyStrongTextBlockStyle}" />
-                            <TextBlock
-                                Text="Drugie imię"
-                                Margin="0,0,0,12"
-                                Style="{ThemeResource BodyStrongTextBlockStyle}" />
-                            <TextBlock
-                                Text="Nazwisko"
-                                Margin="0,0,0,12"
-                                Style="{ThemeResource BodyStrongTextBlockStyle}" />
-                            <TextBlock
-                                Text="PESEL"
-                                Margin="0,0,0,12"
-                                Style="{ThemeResource BodyStrongTextBlockStyle}" />
-                            <TextBlock
-                                Text="Data urodzenia"
-                                Margin="0,0,0,12"
-                                Style="{ThemeResource BodyStrongTextBlockStyle}" />
-                            <TextBlock
-                                Text="Miejsce urodzenia"
-                                Margin="0,0,0,12"
-                                Style="{ThemeResource BodyStrongTextBlockStyle}" />
-                            <TextBlock
-                                Text="NIP"
-                                Margin="0,0,0,12"
-                                Style="{ThemeResource BodyStrongTextBlockStyle}" />
-                            <TextBlock
-                                Text="Płeć"
-                                Margin="0,0,0,12"
-                                Style="{ThemeResource BodyStrongTextBlockStyle}" />
-                            <TextBlock
-                                Text="Stan cywilny"
-                                Margin="0,0,0,12"
-                                Style="{ThemeResource BodyStrongTextBlockStyle}" />
-                            <TextBlock
-                                Text="Narodowość"
-                                Margin="0,0,0,12"
-                                Style="{ThemeResource BodyStrongTextBlockStyle}" />
-                            <TextBlock
-                                Text="Obywatelstwo"
-                                Margin="0,0,0,12"
-                                Style="{ThemeResource BodyStrongTextBlockStyle}" />
-                            <TextBlock
-                                Text="Seria i numer dowodu"
-                                Margin="0,0,0,12"
-                                Style="{ThemeResource BodyStrongTextBlockStyle}" />
-                            <TextBlock
-                                Text="Dowód wydany przez"
-                                Margin="0,0,0,12"
-                                Style="{ThemeResource BodyStrongTextBlockStyle}" />
-                            <TextBlock
-                                Text="Paszport"
-                                Margin="0,0,0,12"
-                                Style="{ThemeResource BodyStrongTextBlockStyle}" />
-                            <TextBlock
-                                Text="Numer książeczki wojskowej"
-                                Margin="0,0,0,12"
-                                Style="{ThemeResource BodyStrongTextBlockStyle}" />
-                            <TextBlock
-                                Text="Imię matki"
-                                Margin="0,0,0,12"
-                                Style="{ThemeResource BodyStrongTextBlockStyle}" />
-                            <TextBlock
-                                Text="Nazwisko panieńskie matki"
-                                Margin="0,0,0,12"
-                                Style="{ThemeResource BodyStrongTextBlockStyle}" />
-                            <TextBlock
-                                Text="Imię ojca"
-                                Margin="0,0,0,12"
-                                Style="{ThemeResource BodyStrongTextBlockStyle}" />
-                            <TextBlock
-                                Text="Nazwisko panieńskie"
-                                Margin="0,0,0,12"
-                                Style="{ThemeResource BodyStrongTextBlockStyle}" />
-                            <TextBlock
-                                Text="Numer konta"
-                                Margin="0,0,0,12"
-                                Style="{ThemeResource BodyStrongTextBlockStyle}" />
-                            <TextBlock
-                                Text="Bank"
-                                Margin="0,0,0,12"
-                                Style="{ThemeResource BodyStrongTextBlockStyle}" />
-                        </StackPanel>
-                        <StackPanel Grid.Column="1">
-                            <TextBlock
-                                Text="{x:Bind ViewModel.Source.Name, Mode=OneWay}"
-                                Margin="0,0,0,12"
-                                Style="{ThemeResource BodyTextBlockStyle}" />
-                            <TextBlock
-                                Text="{x:Bind ViewModel.Source.SecondName, Mode=OneWay}"
-                                Margin="0,0,0,12"
-                                Style="{ThemeResource BodyTextBlockStyle}" />
-                            <TextBlock
-                                Text="{x:Bind ViewModel.Source.Surname, Mode=OneWay}"
-                                Margin="0,0,0,12"
-                                Style="{ThemeResource BodyTextBlockStyle}" />
-                            <TextBlock
-                                Text="{x:Bind ViewModel.Source.Pesel, Mode=OneWay}"
-                                Margin="0,0,0,12"
-                                Style="{ThemeResource BodyTextBlockStyle}" />
-                            <TextBlock
-                                Text="{x:Bind ViewModel.Source.Birthdate, Mode=OneWay}"
-                                Margin="0,0,0,12"
-                                Style="{ThemeResource BodyTextBlockStyle}" />
-                            <TextBlock
-                                Text="{x:Bind ViewModel.Source.BirtPlace, Mode=OneWay}"
-                                Margin="0,0,0,12"
-                                Style="{ThemeResource BodyTextBlockStyle}" />
-                            <TextBlock
-                                Text="{x:Bind ViewModel.Source.Nip, Mode=OneWay}"
-                                Margin="0,0,0,12"
-                                Style="{ThemeResource BodyTextBlockStyle}" />
-                            <TextBlock
-                                Text="{x:Bind ViewModel.Source.Sex, Mode=OneWay}"
-                                Margin="0,0,0,12"
-                                Style="{ThemeResource BodyTextBlockStyle}" />
-                            <TextBlock
-                                Text="{x:Bind ViewModel.Source.MartialStatus, Mode=OneWay}"
-                                Margin="0,0,0,12"
-                                Style="{ThemeResource BodyTextBlockStyle}" />
-                            <TextBlock
-                                Text="{x:Bind ViewModel.Source.Nationality, Mode=OneWay}"
-                                Margin="0,0,0,12"
-                                Style="{ThemeResource BodyTextBlockStyle}" />
-                            <TextBlock
-                                Text="{x:Bind ViewModel.Source.Citizenship, Mode=OneWay}"
-                                Margin="0,0,0,12"
-                                Style="{ThemeResource BodyTextBlockStyle}" />
-                            <TextBlock
-                                Text="{x:Bind ViewModel.Source.Id, Mode=OneWay}"
-                                Margin="0,0,0,12"
-                                Style="{ThemeResource BodyTextBlockStyle}" />
-                            <TextBlock
-                                Text="{x:Bind ViewModel.Source.IdIssuedBy, Mode=OneWay}"
-                                Margin="0,0,0,12"
-                                Style="{ThemeResource BodyTextBlockStyle}" />
-                            <TextBlock
-                                Text="{x:Bind ViewModel.Source.Passport, Mode=OneWay}"
-                                Margin="0,0,0,12"
-                                Style="{ThemeResource BodyTextBlockStyle}" />
-                            <TextBlock
-                                Text="{x:Bind ViewModel.Source.MilitaryId, Mode=OneWay}"
-                                Margin="0,0,0,30"
-                                Style="{ThemeResource BodyTextBlockStyle}" />
-                            <TextBlock
-                                Text="{x:Bind ViewModel.Source.MotherName, Mode=OneWay}"
-                                Margin="0,0,0,12"
-                                Style="{ThemeResource BodyTextBlockStyle}" />
-                            <TextBlock
-                                Text="{x:Bind ViewModel.Source.MotherSurname, Mode=OneWay}"
-                                Margin="0,0,0,12"
-                                Style="{ThemeResource BodyTextBlockStyle}" />
-                            <TextBlock
-                                Text="{x:Bind ViewModel.Source.FatherName, Mode=OneWay}"
-                                Margin="0,0,0,12"
-                                Style="{ThemeResource BodyTextBlockStyle}" />
-                            <TextBlock
-                                Text="{x:Bind ViewModel.Source.FatherSurname, Mode=OneWay}"
-                                Margin="0,0,0,12"
-                                Style="{ThemeResource BodyTextBlockStyle}" />
-                            <TextBlock
-                                Text="{x:Bind ViewModel.Source.AccountNumber, Mode=OneWay}"
-                                Margin="0,0,0,12"
-                                Style="{ThemeResource BodyTextBlockStyle}" />
-                            <TextBlock
-                                Text="{x:Bind ViewModel.Source.BankName, Mode=OneWay}"
-                                Margin="0,0,0,12"
-                                Style="{ThemeResource BodyTextBlockStyle}" />
-                        </StackPanel>
-                    </Grid>
+                    <local:ProfileItemControl
+                        LeftText="Imię"
+                        RightText="{x:Bind ViewModel.Source.Name, Mode=OneWay}"/>
+                    <local:ProfileItemControl
+                        LeftText="Drugie imię"
+                        RightText="{x:Bind ViewModel.Source.SecondName, Mode=OneWay}"/>
+                    <local:ProfileItemControl
+                        LeftText="Nazwisko"
+                        RightText="{x:Bind ViewModel.Source.Surname, Mode=OneWay}"/>
+                    <local:ProfileItemControl
+                        LeftText="PESEL"
+                        RightText="{x:Bind ViewModel.Source.Pesel, Mode=OneWay}"/>
+                    <local:ProfileItemControl
+                        LeftText="Data urodzenia"
+                        RightText="{x:Bind ViewModel.Source.Birthdate, Mode=OneWay}"/>
+                    <local:ProfileItemControl
+                        LeftText="Miejsce urodzenia"
+                        RightText="{x:Bind ViewModel.Source.BirtPlace, Mode=OneWay}"/>
+                    <local:ProfileItemControl
+                        LeftText="NIP"
+                        RightText="{x:Bind ViewModel.Source.Nip, Mode=OneWay}"/>
+                    <local:ProfileItemControl
+                        LeftText="Płeć"
+                        RightText="{x:Bind ViewModel.Source.Sex, Mode=OneWay}"/>
+                    <local:ProfileItemControl
+                        LeftText="Stan cywilny"
+                        RightText="{x:Bind ViewModel.Source.MartialStatus, Mode=OneWay}"/>
+                    <local:ProfileItemControl
+                        LeftText="Narodowość"
+                        RightText="{x:Bind ViewModel.Source.Nationality, Mode=OneWay}"/>
+                    <local:ProfileItemControl
+                        LeftText="Obywatelstwo"
+                        RightText="{x:Bind ViewModel.Source.Citizenship, Mode=OneWay}"/>
+                    <local:ProfileItemControl
+                        LeftText="Dowód osobisty"
+                        RightText="{x:Bind ViewModel.Source.IdNumber, Mode=OneWay}"/>
+                    <local:ProfileItemControl
+                        LeftText="Wydany przez"
+                        RightText="{x:Bind ViewModel.Source.IdIssuedBy, Mode=OneWay}"/>
+                    <local:ProfileItemControl
+                        LeftText="Paszport"
+                        RightText="{x:Bind ViewModel.Source.Passport, Mode=OneWay}"/>
+                    <local:ProfileItemControl
+                        LeftText="Książeczka wojskowa"
+                        RightText="{x:Bind ViewModel.Source.MilitaryId, Mode=OneWay}"/>
+                    <local:ProfileItemControl
+                        LeftText="Imię matki"
+                        RightText="{x:Bind ViewModel.Source.MotherName, Mode=OneWay}"/>
+                    <local:ProfileItemControl
+                        LeftText="Nazwisko panieńskie matki"
+                        RightText="{x:Bind ViewModel.Source.MotherSurname, Mode=OneWay}"/>
+                    <local:ProfileItemControl
+                        LeftText="Imię ojca"
+                        RightText="{x:Bind ViewModel.Source.FatherName, Mode=OneWay}"/>
+                    <local:ProfileItemControl
+                        LeftText="Nazwisko panieńskie"
+                        RightText="{x:Bind ViewModel.Source.FatherSurname, Mode=OneWay}"/>
+                    <local:ProfileItemControl
+                        LeftText="Numer konta"
+                        RightText="{x:Bind ViewModel.Source.AccountNumber, Mode=OneWay}"/>
+                    <local:ProfileItemControl
+                        LeftText="Bank"
+                        RightText="{x:Bind ViewModel.Source.BankName, Mode=OneWay}"/>
                 </StackPanel>
                 <StackPanel Grid.Column="1">
                     <TextBlock
                         Text="Adresy"
                         Margin="0,0,0,24"
                         Style="{ThemeResource SubtitleTextBlockStyle}" />
+                    <TextBlock
+                        Text="Adres stałego zameldowania"
+                        Margin="0,0,0,24"
+                        Style="{ThemeResource BodyStrongTextBlockStyle}" />
+                    <local:ProfileItemControl
+                        LeftText="Ulica"
+                        RightText="{x:Bind ViewModel.Source.Street, Mode=OneWay}"/>
+                    <local:ProfileItemControl
+                        LeftText="Kod pocztowy"
+                        RightText="{x:Bind ViewModel.Source.PostCode, Mode=OneWay}"/>
+                    <local:ProfileItemControl
+                        LeftText="Miejscowość"
+                        RightText="{x:Bind ViewModel.Source.Town, Mode=OneWay}"/>
+                    <local:ProfileItemControl
+                        LeftText="Poczta"
+                        RightText="{x:Bind ViewModel.Source.Post, Mode=OneWay}"/>
+                    <TextBlock
+                        Text="Adres do korespondencji"
+                        Margin="0,24,0,24"
+                        Style="{ThemeResource BodyStrongTextBlockStyle}" />
+                    <local:ProfileItemControl
+                        LeftText="Ulica"
+                        RightText="{x:Bind ViewModel.Source.MailStreet, Mode=OneWay}"/>
+                    <local:ProfileItemControl
+                        LeftText="Kod pocztowy"
+                        RightText="{x:Bind ViewModel.Source.MailPostCode, Mode=OneWay}"/>
+                    <local:ProfileItemControl
+                        LeftText="Miejscowość"
+                        RightText="{x:Bind ViewModel.Source.MailTown, Mode=OneWay}"/>
+                    <local:ProfileItemControl
+                        LeftText="Poczta"
+                        RightText="{x:Bind ViewModel.Source.MailPost, Mode=OneWay}"/>
+                    <TextBlock
+                        Text="Dane kontaktowe"
+                        Margin="0,24,0,24"
+                        Style="{ThemeResource BodyStrongTextBlockStyle}" />
+                    <local:ProfileItemControl
+                        LeftText="E-mail prywatny"
+                        RightText="{x:Bind ViewModel.Source.PersonalEmail, Mode=OneWay}"/>
+                    <local:ProfileItemControl
+                        LeftText="E-mail"
+                        RightText="{x:Bind ViewModel.Source.Email, Mode=OneWay}"/>
+                    <local:ProfileItemControl
+                        LeftText="Telefon stacjonarny"
+                        RightText="{x:Bind ViewModel.Source.Landline, Mode=OneWay}"/>
+                    <local:ProfileItemControl
+                        LeftText="Telefon"
+                        RightText="{x:Bind ViewModel.Source.Mobile, Mode=OneWay}"/>
+                    <TextBlock
+                        Text="Dodatkowe"
+                        Margin="0,24,0,24"
+                        Style="{ThemeResource BodyStrongTextBlockStyle}" />
+                    <local:ProfileItemControl
+                        LeftText="Miejsce zamieszkania przed rozpoczęciem studiów"
+                        RightText="{x:Bind ViewModel.Source.Additional, Mode=OneWay}"/>
                 </StackPanel>
                 <StackPanel Grid.Column="2">
                     <TextBlock
                         Text="Wykształcenie"
                         Margin="0,0,0,24"
                         Style="{ThemeResource SubtitleTextBlockStyle}" />
+                    <TextBlock
+                        Text="Szkoła średnia"
+                        Margin="0,0,0,24"
+                        Style="{ThemeResource BodyStrongTextBlockStyle}" />
+                    <local:ProfileItemControl
+                        LeftText="Numer świadectwa maturalnego"
+                        RightText="{x:Bind ViewModel.Source.MaturaId, Mode=OneWay}"/>
+                    <local:ProfileItemControl
+                        LeftText="Data wydania"
+                        RightText="{x:Bind ViewModel.Source.MaturaDate, Mode=OneWay}"/>
+                    <local:ProfileItemControl
+                        LeftText="Rok ukończenia"
+                        RightText="{x:Bind ViewModel.Source.GraduationHighSchool, Mode=OneWay}"/>
+                    <local:ProfileItemControl
+                        LeftText="Szkoła"
+                        RightText="{x:Bind ViewModel.Source.HighSchool, Mode=OneWay}"/>
+                    <local:ProfileItemControl
+                        LeftText="Rodzaj matury"
+                        RightText="{x:Bind ViewModel.Source.MaturaType, Mode=OneWay}"/>
+                    <TextBlock
+                        Text="Uczelnie wyższe"
+                        Margin="0,24,0,24"
+                        Style="{ThemeResource BodyStrongTextBlockStyle}" />
+                    <local:ProfileItemControl
+                        LeftText="Numer dyplomu"
+                        RightText="{x:Bind ViewModel.Source.DiplomaNumber, Mode=OneWay}"/>
+                    <local:ProfileItemControl
+                        LeftText="Data wydania"
+                        RightText="{x:Bind ViewModel.Source.DiplomaIssueDate, Mode=OneWay}"/>
+                    <local:ProfileItemControl
+                        LeftText="Nazwa uczelni"
+                        RightText="{x:Bind ViewModel.Source.University, Mode=OneWay}"/>
+                    <local:ProfileItemControl
+                        LeftText="Ukończony kierunek"
+                        RightText="{x:Bind ViewModel.Source.Course, Mode=OneWay}"/>
+                    <local:ProfileItemControl
+                        LeftText="Ukończona specjalność"
+                        RightText="{x:Bind ViewModel.Source.Faculty, Mode=OneWay}"/>
+                    <local:ProfileItemControl
+                        LeftText="Inne uczelnie"
+                        RightText="{x:Bind ViewModel.Source.OtherUniversity, Mode=OneWay}"/>
                 </StackPanel>
             </Grid>
         </StackPanel>
