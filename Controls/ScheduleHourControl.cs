@@ -2,7 +2,7 @@
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Shapes;
 
-namespace WSEIDziekanat;
+namespace WSEIDziekanat.Controls;
 
 [TemplatePart(Name = "cellMiddle", Type = typeof(StackPanel))]
 [TemplatePart(Name = "line", Type = typeof(Line))]
