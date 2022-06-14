@@ -12,7 +12,7 @@
     </Page.Resources>
     <StackPanel Margin="{StaticResource NavigationViewPageContentMargin}">
         <TextBlock
-            Text="Settings"
+            Text="Ustawienia"
             Margin="0,0,0,24"
             Style="{ThemeResource TitleTextBlockStyle}" />
         <StackPanel
@@ -54,6 +54,14 @@
                     </RadioButton>
                 </StackPanel>
             </StackPanel>
+            
+            <Button
+                Click="syncButton_Click"
+                HorizontalAlignment="Stretch"
+                Margin="16,16,16,8"
+                x:Name="SyncButton">
+                Synchronizuj
+            </Button>
 
             <TextBlock x:Uid="Settings_About" Style="{ThemeResource SubtitleTextBlockStyle}" />
 

@@ -82,9 +82,6 @@ public class LoginViewModel : ObservableRecipient
 
         var data = await _authenticationService.TryLogin(login, password, _formFields.ToArray()) ?? "";
 
-        data = "/Konto/Zdjecie/";
-        App.SessionId = "5nop5nllbmyadl1yo1vtwe35";
-
         if (data.Contains("/Konto/Zdjecie/"))
         {
             await App.Database.AddAsync(new Credentials(0, Login, Password));

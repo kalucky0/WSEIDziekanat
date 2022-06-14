@@ -1,4 +1,9 @@
-﻿using System.Windows.Input;
+﻿using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
+using System.Windows.Input;
 
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
@@ -53,6 +58,57 @@ public class SettingsViewModel : ObservableRecipient
             return _switchThemeCommand;
         }
     }
+    
+    private async Task<List<string>> GetFormFields(IAuthenticationService authenticationService)
+    {
+        var data = await authenticationService.GetLoginPage() ?? "";
+        if (data.Length == 0)
+            return new();
+
+        if (data.Contains("wpisz kod z obrazka"))
+            await authenticationService.SolveCaptcha();
+
+        var regex = new Regex(
+            "<tr style=\"(.*?)\">.+?formularz_dane\">\\s+<input.+?name=\"([0-9A-f]+)\".+?type=\"([a-z]+)\"",
+            RegexOptions.Singleline | RegexOptions.IgnoreCase);
+
+        var matches = regex.Matches(data).ToArray();
+
+        Debug.WriteLine("GetFormFields: " + matches.Length);
+
+        return matches
+            .Select(it => it.Groups[2].Value)
+            .Where(it => it != "2442")
+            .ToList();
+    }
+
+    public async Task Synchronize(string login, string password)
+    {
+        var authenticationService = App.GetService<IAuthenticationService>();
+        var synchronizationService = App.GetService<ISynchronizationService>();
+
+        var fields = await GetFormFields(authenticationService);
+        var data = await authenticationService.TryLogin(login, password, fields.ToArray()) ?? "";
+
+        if (data.Contains("/Konto/Zdjecie/"))
+        {
+            if (await synchronizationService.Run())
+            {
+                // TODO: Show success message
+            }
+            else
+            {
+                // TODO: Show error message
+                Debug.Fail("Synchronization failed");
+            }
+
+        }
+        else
+        {
+            // TODO: Show error message
+            Debug.Fail("Failed to log in");
+        }
+    }    
 
     public SettingsViewModel(IThemeSelectorService themeSelectorService)
     {

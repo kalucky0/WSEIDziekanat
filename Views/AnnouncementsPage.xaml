@@ -9,23 +9,25 @@
     d:DataContext="{d:DesignInstance Type=viewmodels:Announcement}"
     mc:Ignorable="d">
 
-    <StackPanel Margin="{StaticResource NavigationViewPageContentMargin}">
-        <TextBlock
-            Text="Announcements"
-            Margin="0,0,0,24"
-            Style="{ThemeResource TitleTextBlockStyle}" />
-        <controls:DataGrid
-            AutoGenerateColumns="False"
-            GridLinesVisibility="Horizontal"
-            ItemsSource="{x:Bind ViewModel.Source, Mode=OneWay}">
-            <controls:DataGrid.Resources>
-                <SolidColorBrush x:Key="DataGridColumnHeaderBackgroundColor" Color="Transparent" />
-            </controls:DataGrid.Resources>
-            <controls:DataGrid.Columns>
-                <controls:DataGridTextColumn Binding="{Binding Priority}" Header="Priorytet" Width="0.1*" />
-                <controls:DataGridTextColumn Binding="{Binding Title}" Header="Temat ogłoszenia" Width="0.8*" />
-                <controls:DataGridTextColumn Binding="{Binding Date}" Header="Data publikacji" Width="0.1*" />
-            </controls:DataGrid.Columns>
-        </controls:DataGrid>
-    </StackPanel>
+    <ScrollViewer>
+        <StackPanel Margin="{StaticResource NavigationViewPageContentMargin}">
+            <TextBlock
+                Text="Ogłoszenia"
+                Margin="0,0,0,24"
+                Style="{ThemeResource TitleTextBlockStyle}" />
+            <controls:DataGrid
+                AutoGenerateColumns="False"
+                GridLinesVisibility="Horizontal"
+                ItemsSource="{x:Bind ViewModel.Source, Mode=OneWay}">
+                <controls:DataGrid.Resources>
+                    <SolidColorBrush x:Key="DataGridColumnHeaderBackgroundColor" Color="Transparent" />
+                </controls:DataGrid.Resources>
+                <controls:DataGrid.Columns>
+                    <controls:DataGridTextColumn Binding="{Binding Priority}" Header="Priorytet" Width="0.1*" />
+                    <controls:DataGridTextColumn Binding="{Binding Title}" Header="Temat ogłoszenia" Width="0.8*" />
+                    <controls:DataGridTextColumn Binding="{Binding Date}" Header="Data publikacji" Width="0.1*" />
+                </controls:DataGrid.Columns>
+            </controls:DataGrid>
+        </StackPanel>
+    </ScrollViewer>
 </Page>

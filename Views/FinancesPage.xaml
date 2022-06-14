@@ -9,28 +9,30 @@
     d:DataContext="{d:DesignInstance Type=viewmodels:Payment}"
     mc:Ignorable="d">
 
-    <StackPanel x:Name="ContentArea" Margin="{StaticResource NavigationViewPageContentMargin}">
-        <TextBlock
-            Text="Finances"
-            Margin="0,0,0,24"
-            Style="{ThemeResource TitleTextBlockStyle}" />
-        <controls:DataGrid
-            AutoGenerateColumns="False"
-            GridLinesVisibility="Horizontal"
-            ColumnWidth="*"
-            ItemsSource="{x:Bind ViewModel.Source, Mode=OneWay}">
-            <controls:DataGrid.Resources>
-                <SolidColorBrush x:Key="DataGridColumnHeaderBackgroundColor" Color="Transparent" />
-            </controls:DataGrid.Resources>
-            <controls:DataGrid.Columns>
-                <controls:DataGridTextColumn Binding="{Binding Name}" Header="Nazwa kierunku"  />
-                <controls:DataGridTextColumn Binding="{Binding Due}" Header="Termin" />
-                <controls:DataGridTextColumn Binding="{Binding State}" Header="Stan opłaty" />
-                <controls:DataGridTextColumn Binding="{Binding AmountNow}" Header="Kwota stanu" />
-                <controls:DataGridTextColumn Binding="{Binding Amount}" Header="Rata" />
-                <controls:DataGridTextColumn Binding="{Binding PaymentDate}" Header="Data zapłaty" />
-                <controls:DataGridTextColumn Binding="{Binding AdditionalInfo}" Header="Dodatkowe" />
-            </controls:DataGrid.Columns>
-        </controls:DataGrid>
-    </StackPanel>
+    <ScrollViewer>
+        <StackPanel x:Name="ContentArea" Margin="{StaticResource NavigationViewPageContentMargin}">
+            <TextBlock
+                Text="Finanse"
+                Margin="0,0,0,24"
+                Style="{ThemeResource TitleTextBlockStyle}" />
+            <controls:DataGrid
+                AutoGenerateColumns="False"
+                GridLinesVisibility="Horizontal"
+                ColumnWidth="*"
+                ItemsSource="{x:Bind ViewModel.Source, Mode=OneWay}">
+                <controls:DataGrid.Resources>
+                    <SolidColorBrush x:Key="DataGridColumnHeaderBackgroundColor" Color="Transparent" />
+                </controls:DataGrid.Resources>
+                <controls:DataGrid.Columns>
+                    <controls:DataGridTextColumn Binding="{Binding Name}" Header="Nazwa kierunku"  />
+                    <controls:DataGridTextColumn Binding="{Binding Due}" Header="Termin" />
+                    <controls:DataGridTextColumn Binding="{Binding State}" Header="Stan opłaty" />
+                    <controls:DataGridTextColumn Binding="{Binding AmountNow}" Header="Kwota stanu" />
+                    <controls:DataGridTextColumn Binding="{Binding Amount}" Header="Rata" />
+                    <controls:DataGridTextColumn Binding="{Binding PaymentDate}" Header="Data zapłaty" />
+                    <controls:DataGridTextColumn Binding="{Binding AdditionalInfo}" Header="Dodatkowe" />
+                </controls:DataGrid.Columns>
+            </controls:DataGrid>
+        </StackPanel>
+    </ScrollViewer>
 </Page>
