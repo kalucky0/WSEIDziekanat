@@ -25,7 +25,7 @@ public sealed partial class SchedulePage : Page
         foreach (var item in schedule)
         {
             var date = DateTime.Parse(item.Day);
-            var day = (int)date.DayOfWeek;
+            var day = (int)date.DayOfWeek - 1;
             var scheduleItem = ScheduleItem(item.Subject, item.Instructor, item.Location, item.Type, day, item.TimeFrom, item.TimeTo);
             ScheduleItems.Children.Add(scheduleItem);
         }
@@ -36,7 +36,7 @@ public sealed partial class SchedulePage : Page
     private void HighlightToday()
     {
         var today = DateTime.Today;
-        var todayIndex = (int)today.DayOfWeek;
+        var todayIndex = (int)today.DayOfWeek - 1;
         var color = new SolidColorBrush(Color.FromArgb(255, 0, 183, 195));
 
         switch (todayIndex)

@@ -43,8 +43,8 @@
                             <TextBlock FontSize="16" FontWeight="Light" x:Name="MondayText">Poniedziałek</TextBlock>
                         </StackPanel>
                     </Border>
-                    <Border BorderBrush="#494949" BorderThickness="0,0,0,1" Grid.Column="2">
-                        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center" Padding="10,0,0,0" x:Name="TuesdayBorder">
+                    <Border BorderBrush="#494949" BorderThickness="0,0,0,1" Grid.Column="2" x:Name="TuesdayBorder">
+                        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center" Padding="10,0,0,0">
                             <TextBlock FontSize="16" FontWeight="Light" x:Name="TuesdayText">Wtorek</TextBlock>
                         </StackPanel>
                     </Border>
@@ -58,8 +58,8 @@
                             <TextBlock FontSize="16" FontWeight="Light" x:Name="ThursdayText">Czwartek</TextBlock>
                         </StackPanel>
                     </Border>
-                    <Border BorderBrush="#494949" BorderThickness="0,0,0,1" Grid.Column="5">
-                        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center" Padding="10,0,0,0" x:Name="FridayBorder">
+                    <Border BorderBrush="#494949" BorderThickness="0,0,0,1" Grid.Column="5" x:Name="FridayBorder">
+                        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center" Padding="10,0,0,0">
                             <TextBlock FontSize="16" FontWeight="Light" x:Name="FridayText">Piątek</TextBlock>
                         </StackPanel>
                     </Border>
